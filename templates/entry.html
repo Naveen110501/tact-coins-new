@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>
+        Tact Coins
+    </title>
+    <!-- Favicon -->
+
+    <link href="{{ url_for('static', filename='img/brand/favicon.png') }}" rel="icon" type="image/png">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <!-- Icons -->
+
+    <link href="{{ url_for('static', filename='js/plugins/nucleo/css/nucleo.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='js/plugins/@fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet" />
+    <!-- CSS Files -->
+    <link href="{{ url_for('static', filename='css/argon-dashboard.css') }}" rel="stylesheet" />
+    <style>
+        td:hover{
+		    cursor:move;
+		}
+    </style>
+</head>
+
+<body class="">
+    <div class="main-content" >
+        <!-- Navbar -->
+        <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main"  >
+            <div class="container-fluid">
+                <!-- Brand -->
+                <p class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block">
+                    Tact Coins
+                </p>
+                <!-- Form -->
+
+                <!-- User -->
+
+            </div>
+        </nav>
+        <!-- End Navbar -->
+        <!-- Header -->
+        <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8" >
+            <div class="container-fluid">
+                <div class="header-body">
+                    <!-- Card stats -->
+
+                </div>
+            </div>
+        </div>
+    
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="row align-items-center justify-content-xl-between">
+                <div class="col-xl-6">
+                    <div class="copyright text-center text-xl-left text-muted">
+                        &copy; 2020 <a href="#" class="font-weight-bold ml-1" target="_blank">
+                            Tact Coins
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <ul class="nav nav-footer justify-content-center justify-content-xl-end">
+
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+<!--   Core   -->
+<script src="{{ url_for('static', filename='js/plugins/jquery/dist/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+<!--   Optional JS   -->
+<!--   Argon JS   -->
+<script src="{{ url_for('static', filename='js/argon-dashboard.min.js') }}"></script>
+<script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+<script>
+    window.TrackJS &&
+        TrackJS.install({
+            token: "ee6fab19c5a04ac1a32a645abde4613a",
+            application: "argon-dashboard-free"
+        });
+</script>
+<!-- Bootstrap & Core Scripts -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> 
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script> 
+<script src="https://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

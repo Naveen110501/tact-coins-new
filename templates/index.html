@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>
+        Tact Coins
+    </title>
+    <!-- Favicon -->
+
+    <link href="{{ url_for('static', filename='img/brand/favicon.png') }}" rel="icon" type="image/png">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <!-- Icons -->
+
+    <link href="{{ url_for('static', filename='js/plugins/nucleo/css/nucleo.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='js/plugins/@fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet" />
+    <!-- CSS Files -->
+    <link href="{{ url_for('static', filename='css/argon-dashboard.css') }}" rel="stylesheet" />
+    <style>
+        td:hover{
+		    cursor:move;
+		}
+    </style>
+</head>
+
+<body class="">
+
+    <div class="main-content" >
+        <!-- Navbar -->
+        <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main"  >
+            <div class="container-fluid">
+                <!-- Brand -->
+                <p class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block">
+                    Tact Coins 
+                </p>
+                
+                <!-- Form -->
+
+                <!-- User -->
+
+            </div>
+        </nav>
+        <!-- End Navbar -->
+        <!-- Header -->
+        <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8" >
+            <div class="container-fluid">
+                <div class="header-body">
+                    <!-- Card stats -->
+
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid mt--7">
+            <!-- Form -->
+            <div class="row">
+
+                <div class="col-xl-12 order-xl-1">
+
+                    <div class="card bg-secondary shadow">
+
+                        <div class="card-header bg-white border-0">
+                            <div class="row align-items-center">
+                                <div class="col-8">
+                                    <h3 class="mb-0">Get Your Coins</h3>
+                                </div>
+                                <div class="col-4 text-right">
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-body" >
+                            <form method="post" action="/collection">
+
+                                <!-- Job Name -->
+                                <h6 class="heading-small text-muted mb-4">Enter Name</h6>
+                                <div class="pl-lg-4">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="input-address"></label>
+                                                <input id="name" name="name" class="form-control form-control-alternative" placeholder="Enter Name" value="" type="text">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <hr class="my-4" />
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary my-4">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+
+            <br><br> 
+
+
+            <!-- Table -->
+            <div class="row">
+                <div class="col">
+                    <div class="card shadow">
+                        <div class="card-header border-0">
+                            <h3 class="mb-0">Tact Coins</h3>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table align-items-center table-flush" id = "myTable">
+                                <thead class="thead-light" >
+                                    <tr>
+                                        <th scope="col" style="font-weight: bolder;">Name</th>
+                                        <th scope="col"style="font-weight: bolder;">Total Coins</th>
+                                        <th scope="col" style="font-weight: bolder;">Released Coins</th>
+                                        <th scope="col" style="font-weight: bolder;">To be Released</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            {{result.Name}}
+                                            
+                                        </td>
+                                        <td>
+                                            {{result.total}}
+                                        </td>
+                                        <td>
+                                            {{result.released}}
+                                        </td>
+                                        <td>
+                                            {{result.to_be_released}}
+                                        </td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <br><br>
+
+            {% if result.history %}
+            <!-- Table -->
+            <div class="row">
+                <div class="col">
+                    <div class="card shadow">
+                        <div class="card-header border-0">
+                            <h3 class="mb-0">Coin History</h3>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table align-items-center table-flush" id = "myTable" >
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th class = "index" scope="col" style="font-weight: bolder;">Index</th>
+                                        <th scope="col" style="font-weight: bolder;">Name</th>
+                                        <th scope="col" style="font-weight: bolder;">Event</th>
+                                        <th scope="col" style="font-weight: bolder;">Coins Awarded</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for item in result.history %}
+                                    <tr id = "{{loop.index}}">
+                                        <td scope="row" class = "index">
+                                            <div class="media align-items-center">
+                                                <div class="media-body">
+                                                    <span class="mb-0 text-sm">{{loop.index}}</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            {{item.Name}}
+                                        </td>
+                                        <td>
+                                            {{item.Event}}
+                                        </td>
+                                        <td>
+                                            {{item.CoinsAwarded}}
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            
+
+
+            <br><br>
+            <!-- Table -->
+                    <div class="row">
+                        <div class="col">
+                            <div class="card shadow">
+                                <div class="card-header border-0">
+                                    <h3 class="mb-0"></h3>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table align-items-center table-flush">
+                                        <thead class="thead-light">
+                                            <tr>
+                                                <th scope="col" style="font-weight: bolder;">Intern Names</th>
+                                                <th scope="col" style="font-weight: bolder;">Coins Available</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                            {% for item in result.Intern_list %}
+                                            <tr>
+                                                <td>
+                                                    {{item.Name}}
+                                                </td>
+                                                <td>
+                                                    {{item.Coins}}
+                                                </td>
+                                            </tr>
+                                            {% endfor %}
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+        
+                            </div>
+                        </div>
+                    </div>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="row align-items-center justify-content-xl-between">
+                    <div class="col-xl-6">
+                        <div class="copyright text-center text-xl-left text-muted">
+                            &copy; 2020 <a href="#" class="font-weight-bold ml-1" target="_blank">
+                                Tact Coins
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-6">
+                        <ul class="nav nav-footer justify-content-center justify-content-xl-end">
+
+                        </ul>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <!--   Core   -->
+    <script src="{{ url_for('static', filename='js/plugins/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+    <!--   Optional JS   -->
+    <!--   Argon JS   -->
+    <script src="{{ url_for('static', filename='js/argon-dashboard.min.js') }}"></script>
+    <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+    <script>
+        window.TrackJS &&
+            TrackJS.install({
+                token: "ee6fab19c5a04ac1a32a645abde4613a",
+                application: "argon-dashboard-free"
+            });
+    </script>
+    <!-- Bootstrap & Core Scripts -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> 
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script> 
+    <script src="https://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+    <!-- <script type="text/javascript">
+        $("tbody").sortable({
+		distance: 5,
+		delay: 100,
+		opacity: 0.6,
+		cursor: 'move'
+        })
+      </script> -->
+      <!--  <script>
+            var fixHelperModified = function(e, tr) {
+            var $originals = tr.children();
+            var $helper = tr.clone();
+            $helper.children().each(function(index) {
+                $(this).width($originals.eq(index).width())
+            });
+            return $helper;
+        },
+            updateIndex = function(e, ui) {
+                $('td.index', ui.item.parent()).each(function (i) {
+                    $(this).html(i+1);
+                });
+            };
+
+        $("#myTable tbody").sortable({
+            helper: fixHelperModified,
+            stop: updateIndex
+        }).disableSelection();
+        
+            $("tbody").sortable({
+            distance: 5,
+            delay: 100,
+            opacity: 0.8,
+            cursor: 'move',
+            update: function() {}
+                });
+
+      </script> -->
+    <!-- Hello                    -->
+</body>
+
+</html>

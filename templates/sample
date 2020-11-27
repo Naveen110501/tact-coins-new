@@ -1,0 +1,17 @@
+<script>
+		function myFunction() {
+		  alert("Hello! I am an alert box!");
+		}
+		</script>
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<div class="container">
+		<h2>Image</h2>          
+		<img src="1.jpeg" class="img-rounded" alt="Cinque Terre" width="800" height="600"> 
+	  </div>
